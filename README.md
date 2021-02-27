@@ -1,2 +1,2 @@
-# -store_wars
-Store Wars:
+# Store Wars
+A software to manage Star Wars products budget.
