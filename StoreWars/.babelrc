@@ -1,0 +1,39 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env", {
+        "modules": false,
+        "loose": false,
+        "useBuiltIns": "usage"
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime", {
+        "regenerator": false
+    }
+    ]
+  ],
+  "comments": false,
+  "env": {
+    "test": {
+      "presets": [
+        ["@babel/env", { "targets": { "node": "current" }}]
+      ],
+      "plugins": [
+        [
+          "module-resolver",
+          {
+            "root": [
+              "./src"
+            ],
+            "alias": {
+              
+            }
+          }
+        ]
+      ]
+    }
+  }
+}
