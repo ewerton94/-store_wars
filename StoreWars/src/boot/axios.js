@@ -6,10 +6,13 @@ const baseURL = 'https://ewerton94.pythonanywhere.com/'
 const HTTPClient = axios.create({
   baseURL: baseURL
 })
+try {
+  HTTPClient.defaults.xsrfCookieName = 'csrftoken'
+  HTTPClient.defaults.xsrfHeaderName = 'X-CSRFToken'
+} catch (e) {
 
+}
 // HTTPClient.defaults.withCredentials = true
-HTTPClient.defaults.xsrfCookieName = 'csrftoken'
-HTTPClient.defaults.xsrfHeaderName = 'X-CSRFToken'
 
 export {
   HTTPClient
