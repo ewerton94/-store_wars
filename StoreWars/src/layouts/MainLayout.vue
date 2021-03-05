@@ -4,7 +4,7 @@
       <q-toolbar>
 
         <q-toolbar-title>
-          Store Wars
+          <img src="sw.png" style="height: 3em" class="q-pl-md" alt="sw">
         </q-toolbar-title>
         <q-btn round dense flat :ripple="false" :icon="fabGithub" size="19px" color="white" class="q-mr-sm" no-caps />
 
