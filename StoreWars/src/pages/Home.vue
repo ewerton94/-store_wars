@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import Breadcrumbs from 'components/Home/Breadcrumbs.vue'
+import Breadcrumbs from 'components/Home/BreadCrumbs.vue'
 import FilterBlock from 'components/Home/FilterBlock.vue'
 import ListOrders from 'components/Home/ListOrders.vue'
 

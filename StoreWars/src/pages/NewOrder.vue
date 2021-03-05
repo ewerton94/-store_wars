@@ -5,19 +5,21 @@
         <Breadcrumbs :pages="pages"  />
       </div>
       <div  class="full-width">
-
+        <OrderForm :id="id" />
       </div>
     </div>
   </q-page>
 </template>
 
 <script>
-import Breadcrumbs from 'components/Home/Breadcrumbs.vue'
+import Breadcrumbs from '../components/Home/BreadCrumbs.vue'
+import OrderForm from '../components/NewOrder/OrderForm.vue'
 
 export default {
   name: 'PageIndex',
   data: function () {
     return {
+      id: 4,
       pages: [
         { name: 'Pedidos', icon: 'store', href: '/' },
         { name: 'Novo Pedido', icon: 'add', href: '/new-order' }
@@ -25,7 +27,8 @@ export default {
     }
   },
   components: {
-    Breadcrumbs
+    Breadcrumbs,
+    OrderForm
 
   }
 }
