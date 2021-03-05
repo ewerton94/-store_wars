@@ -6,41 +6,31 @@
           <q-badge
             floating
             color="red"
-            class="items-center justify-center"
-            style="
-              bottom: 0;
-              top: auto;
-              z-index: 40;
-              font-size: 20px;
-              height: 25px;
-              width: 25px;
-            "
-            >2</q-badge
+            class="items-center justify-center item-quantity"
+            >{{item.quantity}}</q-badge
           >
 
-          <q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" />
+          <q-img :src="item.product.photo" />
         </q-card>
 
         <q-card class="col-6 col-md-4 transparent no-border no-shadow">
-          <div class="col text-h6 ellipsis">Cafe Basilico</div>
-          <div class="col text-h6 ellipsis">R$</div>
+          <div class="col text-h6 ellipsis">{{item.product.name}}</div>
+          <div class="col text-h6 ellipsis">{{ item.price | formatMoney }}</div>
         </q-card>
         <q-card class="col-6 col-md-4 transparent no-border no-shadow">
           <div class="row no-wrap justify-end">
-            <div class="text-white q-pt-md row no-wrap items-center">
+            <div class="text-white q-mb-none row no-wrap items-center">
               Valor base:
             </div>
           </div>
           <div class="row no-wrap justify-end">
-            <div class="text-grey q-pt-md row no-wrap items-center">R$ 50</div>
+            <div class="text-grey row no-wrap items-center">{{ item.product.price | formatMoney }}</div>
           </div>
           <div class="row no-wrap items-center justify-end">
-            <p>Rentabilidade:</p>
+            <p class="q-mt-md q-mb-none">Rentabilidade:</p>
           </div>
-          <div class="row no-wrap items-center justify-end">
-            <q-badge color="red" class="items-center justify-center"
-              >Ótima</q-badge
-            >
+          <div class="row no-wrap items-center justify-end text-black">
+            <Profitability :profitability="item.profitability"/>
           </div>
         </q-card>
       </div>
@@ -49,10 +39,25 @@
 </template>
 
 <script>
-export default {}
+import Profitability from './Profitability.vue'
+
+export default {
+  components: {
+    Profitability
+  },
+  props: [
+    'item'
+  ]
+}
 </script>
 
 <style>
-.transparent {
+.item-quantity {
+  bottom: 0;
+  top: auto;
+  z-index: 40;
+  font-size: 20px;
+  height: 25px;
+  width: 25px;
 }
 </style>

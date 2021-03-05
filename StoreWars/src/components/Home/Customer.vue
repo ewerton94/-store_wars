@@ -2,7 +2,7 @@
   <q-item class="q-pa-md">
     <q-item-section avatar>
       <q-avatar>
-        <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+        <img :src="photo" />
       </q-avatar>
     </q-item-section>
     <q-item-section>
@@ -16,7 +16,8 @@
 export default {
   props: [
     'id',
-    'name'
+    'name',
+    'photo'
   ]
 }
 </script>

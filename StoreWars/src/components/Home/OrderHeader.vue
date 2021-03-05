@@ -3,7 +3,7 @@
     <q-item-section>
       <div class="text-h6">{{ customerName }}</div>
       <div class="text-subtitle2">
-        {{ Npedidos }} produtos | Total: {{ valorTotalPedido }}.
+        {{ Npedidos }} produtos | Total: {{ valorTotalPedido | formatMoney }}.
       </div>
     </q-item-section>
     <q-item-section avatar>
