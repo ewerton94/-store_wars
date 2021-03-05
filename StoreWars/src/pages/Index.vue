@@ -10,7 +10,6 @@
         <ListOrders />
       </div>
     </div>
-
   </q-page>
 </template>
 
@@ -32,7 +31,6 @@ export default {
 .WAL
   &__layout
     margin: 0 auto
-    z-index: 4000
     height: 100%
     width: 90%
     max-width: 1050px
