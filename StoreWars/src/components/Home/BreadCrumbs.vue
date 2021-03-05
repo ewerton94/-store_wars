@@ -3,17 +3,21 @@
     <div class="bg-dark text-white ">
       <q-toolbar >
         <q-breadcrumbs active-color="cyan-13" style="font-size: 16px">
-          <q-breadcrumbs-el label="Pedidos" icon="store" />
-          <q-breadcrumbs-el label="Novo" icon="add" />
+          <q-breadcrumbs-el
+            v-for="(page, index) in pages"
+            :key="index"
+            :label="page.name"
+            :icon="page.icon"
+            :to="page.href"
+          />
 
         </q-breadcrumbs>
       </q-toolbar>
       <q-toolbar >
-        <q-btn flat round dense icon="store" />
+        <q-btn flat round dense :icon="pageAtual.icon" />
 
-        <q-toolbar-title>Pedidos</q-toolbar-title>
+        <q-toolbar-title>{{ pageAtual.name }}</q-toolbar-title>
 
-        <q-btn flat class="bg-grey-9 q-px-sm text-white" dense label="Novo pedido" icon="add" />
       </q-toolbar>
     </div>
   </div>
@@ -21,7 +25,20 @@
 
 <script>
 export default {
-  name: 'BreadCrumbs'
+  name: 'BreadCrumbs',
+  data: function () {
+    return {
+      pageAtual: {}
+
+    }
+  },
+  props: [
+    'pages'
+  ],
+  mounted () {
+    const last = this.pages.length - 1
+    this.pageAtual = this.pages[last]
+  }
 
 }
 </script>

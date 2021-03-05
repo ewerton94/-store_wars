@@ -2,8 +2,13 @@
   <q-page class="WAL__layout " >
     <div class="row q-ma-md">
       <div class="full-width">
-        <Breadcrumbs  />
+        <Breadcrumbs :pages="pages"  />
+        <div class="row justify-end">
+
+        <q-btn flat align="right" to="/new-order" class="bg-grey-9 q-px-sm text-white " dense label="Novo pedido" icon="add" />
+        </div>
       </div>
+
       <div  class="full-width">
         <FilterBlock />
         <br>
@@ -20,6 +25,14 @@ import ListOrders from 'components/Home/ListOrders.vue'
 
 export default {
   name: 'PageIndex',
+  data: function () {
+    return {
+      pages: [
+        { name: 'Pedidos', icon: 'store', href: '/' }
+
+      ]
+    }
+  },
   components: {
     Breadcrumbs,
     FilterBlock,
