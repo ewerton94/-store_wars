@@ -2,7 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import routes from './routes'
+import filters from 'filters/index'
 
+filters()
 Vue.use(VueRouter)
 
 /*
