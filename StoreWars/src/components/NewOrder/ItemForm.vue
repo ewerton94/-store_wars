@@ -45,7 +45,16 @@ export default {
       return Math.round(x * c) / c
     },
     getQuantitySituation (v) {
-      const productQuantity = this.products.find((p) => p.id === this.value.product).multiple
+      console.log(this.products)
+      console.log(this.value.product)
+      this.products.forEach((p) => {
+        console.log(Number(p.id))
+        console.log(Number(this.value.product))
+        console.log(this.value)
+        console.log(this.value.product)
+        console.log(Number(p.id) === Number(this.value.product))
+      })
+      const productQuantity = this.products.find((p) => Number(p.id) === Number(this.value.product)).multiple
       return this.value.quantity % productQuantity === 0
     },
     getProfitability () {

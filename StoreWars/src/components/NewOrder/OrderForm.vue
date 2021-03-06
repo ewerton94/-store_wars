@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :key="key">
       <p>{{ order.items.length }} Itens</p>
     <q-form @submit="sendOrder">
 
@@ -51,26 +51,45 @@
 import Select from './Select.vue'
 import ItemForm from './ItemForm.vue'
 import { mapActions, mapState } from 'vuex'
-import { Notify } from 'quasar'
+import { Notify, Loading } from 'quasar'
 
 export default {
   data: function () {
     return {
       order: {
         items: []
-      }
+      },
+      key: 0
     }
   },
   computed: {
     ...mapState('Products', ['products']),
-    ...mapState('Customers', ['customers'])
+    ...mapState('Customers', ['customers']),
+    ...mapState('Orders', ['orderUpdate'])
   },
   methods: {
     ...mapActions('Products', ['listProducts']),
     ...mapActions('Customers', ['listCustomers']),
+    ...mapActions('Orders', ['createOrders', 'obterOrder', 'updateOrders']),
+    async showOrder (id) {
+      this.carregando = true
+      Loading.show()
+      await this.obterOrder(id)
+      this.order = JSON.parse(JSON.stringify(this.orderUpdate))
+      this.order.items.forEach((v) => {
+        v.product = v.product.id
+      })
+      this.order.customer = this.order.customer.id
+      Loading.hide()
+    },
     async getData () {
-      this.listProducts()
-      this.listCustomers()
+      await this.listProducts()
+      await this.listCustomers()
+      if (this.$route.query) {
+        if (this.$route.query.id) {
+          this.showOrder(this.$route.query.id)
+        }
+      }
     },
     newItem () {
       this.order.items.push({
@@ -92,9 +111,16 @@ export default {
       }
       return true
     },
-    sendOrder () {
+    async sendOrder () {
       if (this.check()) {
-        console.log('OK')
+        Loading.show()
+        if (this.order.id) {
+          await this.updateOrders(this.order)
+        } else {
+          await this.createOrder(this.order)
+        }
+        this.$router.push('/')
+        Loading.hide()
       }
     }
   },

@@ -2,6 +2,7 @@
   <div>
     <div v-if="!carregando">
       <Order
+      class="q-mt-md"
         v-for="(order, index) in orders"
         :key="index"
         :order="order"
