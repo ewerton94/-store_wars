@@ -117,7 +117,7 @@ export default {
         if (this.order.id) {
           await this.updateOrders(this.order)
         } else {
-          await this.createOrder(this.order)
+          await this.createOrders(this.order)
         }
         this.$router.push('/')
         Loading.hide()
