@@ -13,16 +13,16 @@ export default {
     return {
       profitabilities: {
         excellent: {
-          name: 'Excelente',
-          color: 'cyan-12'
+          name: 'Rentabilidade Excelente',
+          color: 'cyan-4'
         },
         good: {
-          name: 'Boa',
+          name: 'Rentabilidade Boa',
           color: 'yellow'
         },
         bad: {
-          name: 'Excelente',
-          color: 'red'
+          name: 'Rentabilidade Ruim',
+          color: 'red-5'
         }
       }
     }

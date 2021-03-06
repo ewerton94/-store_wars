@@ -9,6 +9,8 @@
     use-input
     @input="$emit('input', $event)"
     hide-selected
+    :rules="rules"
+    :lazy-rules="lazy_rules"
     fill-input
     :label="label"
     input-debounce="0"
@@ -47,7 +49,6 @@ export default {
   },
   mounted () {
     this.optionsFiltradas = this.options
-    console.log(this.optionsFiltradas)
   },
   methods: {
     filterOptions (val, update, abort) {
@@ -56,7 +57,6 @@ export default {
         this.optionsFiltradas = this.options.filter(
           (v) => v[this.campo_label].toLowerCase().indexOf(needle) > -1
         )
-        console.log(this.optionsFiltradas)
       })
     },
     setValue (val) {
@@ -69,6 +69,8 @@ export default {
     'icon',
     'campo_label',
     'label',
+    'rules',
+    'lazy_rules',
     'extraClass'
   ]
 }
