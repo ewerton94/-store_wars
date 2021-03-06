@@ -18,7 +18,7 @@ const numberItemsByOrder = (state, getters) => (orderId) => {
 
 const valueTotalByOrder = (state, getters) => (orderId) => {
   var order = getOrderById(state, orderId)
-  return order.items.map((i) => Number(i.price)).reduce((a, b) => a + b, 0)
+  return order.items.map((i) => Number(i.price) * Number(i.quantity)).reduce((a, b) => a + b, 0)
 }
 
 export {
