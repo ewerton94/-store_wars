@@ -10,8 +10,6 @@
       </div>
 
       <div  class="full-width">
-        <FilterBlock />
-        <br>
         <ListOrders />
       </div>
     </div>
@@ -20,7 +18,7 @@
 
 <script>
 import Breadcrumbs from 'components/Home/BreadCrumbs.vue'
-import FilterBlock from 'components/Home/FilterBlock.vue'
+// import FilterBlock from 'components/Home/FilterBlock.vue'
 import ListOrders from 'components/Home/ListOrders.vue'
 
 export default {
@@ -29,13 +27,12 @@ export default {
     return {
       pages: [
         { name: 'Pedidos', icon: 'store', href: '/' }
-
       ]
     }
   },
   components: {
     Breadcrumbs,
-    FilterBlock,
+    // FilterBlock,
     ListOrders
   }
 }
