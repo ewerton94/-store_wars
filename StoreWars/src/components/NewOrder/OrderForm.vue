@@ -114,6 +114,9 @@ export default {
     async sendOrder () {
       if (this.check()) {
         Loading.show()
+        this.order.items.forEach((i) => {
+          i.price = i.price.replace(',', '.')
+        })
         if (this.order.id) {
           await this.updateOrders(this.order)
         } else {
